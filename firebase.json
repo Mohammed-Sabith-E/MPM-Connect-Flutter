@@ -1,0 +1,35 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "mpm-connect-prod",
+          "appId": "1:359362088897:android:9b609780a7e8246c10a940",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "mpm-connect-prod",
+          "appId": "1:359362088897:ios:2443bb7961229ef610a940",
+          "uploadDebugSymbols": false,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "mpm-connect-prod",
+          "configurations": {
+            "android": "1:359362088897:android:9b609780a7e8246c10a940",
+            "ios": "1:359362088897:ios:2443bb7961229ef610a940",
+            "web": "1:359362088897:web:37de2801354d9ede10a940"
+          }
+        }
+      }
+    }
+  }
+}

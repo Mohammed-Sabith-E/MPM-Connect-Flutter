@@ -1,0 +1,37 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Global Users collection (credentials, roles, and organization mapping)
+    match /users/{userId} {
+      allow read, write: if true;
+    }
+
+    // Multi-tenant organizations and all subcollections
+    match /organizations/{organizationId} {
+      allow read, write: if true;
+
+      match /{document=**} {
+        allow read, write: if true;
+      }
+    }
+
+    // Legacy Root collections protection (production data safety)
+    match /customers/{docId} {
+      allow read, write: if false;
+    }
+    match /transactions/{docId} {
+      allow read, write: if false;
+    }
+    match /payments/{docId} {
+      allow read, write: if false;
+    }
+    match /salesmen/{docId} {
+      allow read, write: if false;
+    }
+    match /auditLogs/{docId} {
+      allow read, write: if false;
+    }
+  }
+}
+
